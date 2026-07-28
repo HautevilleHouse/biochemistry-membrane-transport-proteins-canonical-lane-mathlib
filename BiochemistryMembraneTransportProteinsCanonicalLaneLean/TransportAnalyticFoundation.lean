@@ -1,0 +1,19 @@
+import HautevilleHouse.BiochemistryMembraneTransportProteinsCanonicalLaneLean.PrimitiveMembraneTransport
+import HautevilleHouse.BiochemistryMembraneTransportProteinsCanonicalLaneLean.TransportKineticsPackage
+
+namespace HautevilleHouse
+namespace BiochemistryMembraneTransportProteinsCanonicalLaneLean
+
+structure MembraneTransportAnalyticFoundation where
+  primitive : PrimitiveMembraneTransportFoundationalInhabitants
+  kinetics : ReactionKineticsPackage
+  kineticsEvidence : ReactionKineticsEvidence kinetics
+
+def MembraneTransportAnalyticFoundationClosed (F : MembraneTransportAnalyticFoundation) : Prop :=
+  ReactionKineticsClosed F.kinetics
+
+theorem membrane_transport_analytic_foundation_closed_from_evidence (F : MembraneTransportAnalyticFoundation) : MembraneTransportAnalyticFoundationClosed F := by
+  exact reaction_kinetics_closed_from_evidence F.kinetics F.kineticsEvidence
+
+end BiochemistryMembraneTransportProteinsCanonicalLaneLean
+end HautevilleHouse
